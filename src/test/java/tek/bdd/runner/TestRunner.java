@@ -16,13 +16,12 @@ import org.junit.runner.RunWith;
  // On the other hand, if dryRun = false, this will execute/run our code. NOTE: we will be able to execute our code with dryRun it is there main if we want to check if any step definition is missing.
         dryRun = false,
  // To Run a specific Tag which can be Smoke, Regression, Story_1 or Story_2 in the tag which will Execute that specific tests.
-        tags = "@Regression",
+        tags = "@Smoke",
  // The Plugin will help us to print a report of our test and present it in a simple english language which is it for PO and manager to read!
  // If we are adding more than one Plugins, we MUST put them inside { } and separate them by comma
 
         plugin = { "html:target/html_report/index.html",
                     "pretty",
-
         }
 
 
