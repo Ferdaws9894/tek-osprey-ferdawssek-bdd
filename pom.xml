@@ -46,10 +46,35 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
-<!--               Include Your TestRunner! This will run anything test that is going to be set in the TestRunner such as @Regression and @Smoke Tests -->
+<!--                 Include Your TestRunner! This will run anything test that is going to be set in the TestRunner such as @Regression and @Smoke Tests -->
                         <include>TestRunner.java</include>
                     </includes>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.7.1</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>CucumberFramework</projectName>
+                            <skip>false</skip>
+                            <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
+                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+<!--                    optional, set true to fail to build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
