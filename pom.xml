@@ -35,9 +35,23 @@
         </dependency>
     </dependencies>
 
-    <!-- Adding Plugins for Maven to Execute Tests
+    <!-- Adding Plugins for Maven to "Execute Tests"
          Adding SureFire(is for JUnit) Plugin from Apache
          To add the plugin we must place it -->
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>
+<!--               Include Your TestRunner! This will run anything test that is going to be set in the TestRunner such as @Regression and @Smoke Tests -->
+                        <include>TestRunner.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
